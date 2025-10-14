@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo2 from "../assets/Pictures/logo2.png";
+import logo3 from "../assets/Pictures/logo2.jpeg";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 function Header() {
@@ -11,7 +11,7 @@ function Header() {
       <div className="w-full flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={logo2} alt="Logo" className="h-14 w-auto" />
+          <img src={logo3} alt="Logo" className="h-14 w-auto" />
           <div className="text-3xl font-bold ml-2">Sparkle Dash</div>
         </Link>
 
