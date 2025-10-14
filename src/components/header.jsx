@@ -9,13 +9,10 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 w-full bg-sky-600 text-white shadow-md z-50">
       <div className="w-full flex items-center justify-between px-6 py-4">
-        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src={logo3} alt="Logo" className="h-14 w-auto" />
           <div className="text-3xl font-bold ml-2">Sparkle Dash</div>
         </Link>
-
-        {/* Desktop nav */}
         <nav className="hidden md:flex">
           <ul className="flex space-x-8">
             <li><Link to="/" className="hover:text-green-200">Home</Link></li>
@@ -25,16 +22,12 @@ function Header() {
             <li><Link to="/contact" className="hover:text-gray-200">Contact</Link></li>
           </ul>
         </nav>
-
-        {/* Hamburger for mobile */}
         <div className="md:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl">
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </div>
-
-      {/* Mobile menu */}
       {menuOpen && (
         <nav className="md:hidden bg-sky-600 w-full px-6 py-4">
           <ul className="flex flex-col space-y-4">
