@@ -1,6 +1,33 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+const sendEmail = async (e) => {
+  e.preventDefault();
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value,
+  };
+
+  try {
+    const res = await fetch("http://localhost:5000/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      alert("✅ Message sent!");
+      e.target.reset();
+    } else {
+      alert("❌ Failed to send message.");
+    }
+  } catch (err) {
+    alert("❌ Error: " + err.message);
+  }
+};
+
+
 function Contact() {
   return (
     <div className="max-w-2xl mx-auto px-6 py-10">
