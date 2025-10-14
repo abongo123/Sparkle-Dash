@@ -7,7 +7,7 @@ import garbageImg from "../assets/Pictures/Garbage.jpg";
 
 function About() {
   return (
-    <div className="w-full relative px-6 py-10 bg-sky-500 min-h-screen">
+    <div className="w-full relative px-6 py-10 bg-sky-500 h-screen">
       <div className="flex">
       <div className="text-center md:w-1/2">
       <h2 className="text-3xl font-bold text-white">About Us</h2>
