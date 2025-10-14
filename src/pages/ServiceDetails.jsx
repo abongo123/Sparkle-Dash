@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams, Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function ServiceDetails() {
   const { id } = useParams();
@@ -13,45 +14,34 @@ function ServiceDetails() {
 
   const serviceOptions = {
     carpet: [
-      { name: "Small Carpet (3/4x5 ft)", price: "Ksh 500" },
-      { name: "Medium Carpet (6x8 ft)", price: "Ksh 800" },
-      { name: "Large Carpet (10x12 ft)", price: "Ksh 1200" },
-      { name: "Extra Large Carpet (12x12 ft)", price: "Ksh 1500" },
+      { name: "Small Carpet (3x5 ft)", price: "Ksh 500" },
+      { name: "Medium Carpet (5x8 ft)", price: "Ksh 800" },
+      { name: "Large Carpet (8x10 ft)", price: "Ksh 1200" },
+      { name: "Extra Large Carpet (10x12 ft)", price: "Ksh 1500" },
     ],
     sofa: [
-      { name: "2-Seater", price: "Ksh 1,500" },
-      { name: "5-Seater", price: "Ksh 3,000" },
-      { name: "7-Seater", price: "Ksh 3,800" },
-      { name: "10-Seater", price: "Ksh 5,700" },
-      { name: "L-Shaped Sofa", price: "Ksh 2,500" },
+      { name: "1-Seater", price: "Ksh 400" },
+      { name: "2-Seater", price: "Ksh 700" },
+      { name: "3-Seater", price: "Ksh 1,000" },
+      { name: "L-Shaped Sofa", price: "Ksh 1,500" },
     ],
     mattress: [
-      { name: "4 by 6ft", price: "Ksh 1,300" },
-      { name: "5 by 6ft", price: "Ksh 1,800" },
-      { name: "5 by 6ft", price: "Ksh 2,100" },
+      { name: "Single Mattress", price: "Ksh 600" },
+      { name: "Double Mattress", price: "Ksh 800" },
+      { name: "Queen Mattress", price: "Ksh 1,000" },
+      { name: "King Mattress", price: "Ksh 1,200" },
     ],
     "home-office": [
-      { name: "Single Room/Bedsitter", price: "Ksh 1,000" },
-      { name: "1 Bedroom", price: "Ksh 1,500" },
-      { name: "2 Bedroom", price: "Ksh 2,000" },
-      { name: "3 Bedroom", price: "Ksh 2,400" },
-      { name: "4 Bedroom", price: "Ksh 3,000" },
-      { name: "5 Bedroom+", price: "Ksh 4,000" },
-      { name: "Small Office (1-3 rooms)", price: "Ksh 1,100" },
-      { name: "Medium Office (4-6 rooms)", price: "Ksh 2,300" },
-      { name: "Large Office/Insititution", price: "Ksh 5,000" },
+      { name: "Single Room", price: "Ksh 1,500" },
+      { name: "1 Bedroom", price: "Ksh 2,000" },
+      { name: "2 Bedroom", price: "Ksh 3,000" },
+      { name: "Office Space (per room)", price: "Ksh 2,500" },
     ],
     fumigation: [
       { name: "Single Room", price: "Ksh 1,000" },
-      { name: "1 Bedroom", price: "Ksh 2,900" },
-      { name: "2 Bedroom", price: "Ksh 4,200" },
-      { name: "3 Bedroom", price: "Ksh 5,100" },
-      { name: "4 Bedroom", price: "Ksh 6,000" },
-      { name: "5 Bedroom", price: "Ksh 7,700" },
-      { name: "6 Bedroom", price: "Ksh 9,000" },
-      { name: "Compound (50 by 50ft)", price: "Ksh 3,500" },
-      { name: "Compound (50 by 10ft)", price: "Ksh 4,500" },
-      { name: "Compound (100 by 100ft)", price: "Ksh 6,500" },
+      { name: "1 Bedroom", price: "Ksh 1,500" },
+      { name: "2 Bedroom", price: "Ksh 2,500" },
+      { name: "Entire House", price: "Ksh 4,000" },
     ],
     construction: [
       { name: "Small Site", price: "Ksh 3,000" },
@@ -59,13 +49,9 @@ function ServiceDetails() {
       { name: "Large Site", price: "Ksh 6,000" },
     ],
     deep: [
-      { name: "1 Room", price: "Ksh 2,100" },
-      { name: "1 BR House", price: "Ksh 5,200" },
-      { name: "2 BR House", price: "Ksh 7,200" },
-      { name: "3 BR House", price: "Ksh 10,100" },
-      { name: "4 BR House", price: "Ksh 13,000" },
-      { name: "5 BR House", price: "Ksh 16,000" },
-      { name: "6+ BR House", price: "Ksh 20,000" },
+      { name: "1 Room", price: "Ksh 1,200" },
+      { name: "2 Rooms", price: "Ksh 2,000" },
+      { name: "Entire House", price: "Ksh 3,000" },
     ],
     move: [
       { name: "Move-In (1 Bedroom)", price: "Ksh 2,000" },
