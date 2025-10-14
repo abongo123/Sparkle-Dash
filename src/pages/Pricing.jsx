@@ -19,14 +19,14 @@ function Pricing() {
   const plans = [
     {
       name: "Basic Plan",
-      bg: "#eed0a6",
+      bg: "#f5e7d3",
       prices: ["1BR: KSH 3,100", "2BR: KSH 4,100", "3BR: KSH 5,000", "4BR+: Custom"],
       description: "Simple, affordable and reliable for your daily routine.",
       features: ["Cleaning 2x/week", "Weekly Garbage Collection"],
     },
     {
       name: "Standard Plan",
-      bg: "#86efac",
+      bg: "#baf5cf",
       prices: ["1BR: KSH 6,500", "2BR: KSH 7,600", "3BR: KSH 9,000", "4BR+: Custom"],
       description: "Perfect balance of cleanliness, comfort and convenience.",
       features: [
@@ -38,7 +38,7 @@ function Pricing() {
     },
     {
       name: "Premium Plan",
-      bg: "#fde68a",
+      bg: "#fce99d",
       prices: ["1BR: KSH 12,000", "2BR: KSH 13,500", "3BR: KSH 16,000", "4BR+: Custom"],
       description: "All-in-one care for a spotless, stress-free lifestyle.",
       features: [
@@ -68,7 +68,7 @@ function Pricing() {
         {plans.map((plan, index) => (
           <div key={index} className="shadow-lg text-center rounded-lg overflow-hidden">
             <div
-              className="border-2 border-sky-600 py-10"
+              className="border-2 border-sky-300 py-10"
               style={{ backgroundColor: plan.bg }}
             >
               <h3 className="text-xl font-semibold mb-2 text-emerald-600">
@@ -97,7 +97,7 @@ function Pricing() {
                 {loadingPlan === plan.name ? "Loading..." : "Select"}
               </button>
             </div>
-            <div className="bg-white border-2 text-start px-8 py-12 border-sky-500 h-48">
+            <div className="bg-white border-2 text-start px-8 py-12 border-sky-300 h-48">
               <ul className="text-sm space-y-1">
                 {plan.features.map((feature, i) => (
                   <li

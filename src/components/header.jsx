@@ -9,7 +9,7 @@ import logo1 from "../assets/Pictures/logo2.jpeg"
 function Header() {
   return (
     <header className="fixed top-0 left-0 w-full bg-sky-600 text-white shadow-md z-50">
-      <div className="w-full flex items-center justify-between px-6 py-4">
+      <div className="w-full flex flex-wrap items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center">
         <img src={logo2} alt="Logo" className="h-14 w-auto"/>
         <div className="text-3xl font-bold">Sparkle Dash</div>
