@@ -19,7 +19,7 @@ const sendEmail = async (e) => {
     });
 
     if (res.ok) {
-      alert("✅ Message sent!");
+      alert("Thank you for Contacting us, we will get back ASAP!");
       e.target.reset();
     } else {
       alert("❌ Failed to send message.");
