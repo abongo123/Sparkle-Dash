@@ -12,7 +12,7 @@ const sendEmail = async (e) => {
   };
 
   try {
-    const res = await fetch("https://sparkle-backend-five.vercel.app/", {
+    const res = await fetch("https://sparkle-backend-five.vercel.app/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
