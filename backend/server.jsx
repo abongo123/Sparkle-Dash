@@ -8,15 +8,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Contact form endpoint
-app.post("/send", async (req, res) => {
-  const { name, email, message } = req.body;
+app.post("/contact", async (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
+  const name = `${firstName} ${lastName}`;
 
-  if (!name || !email || !message) {
+  if (!firstName || !lastName || !email || !message) {
     return res.status(400).send("All fields are required.");
   }
 
-  // Configure nodemailer transporter
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -29,7 +28,14 @@ app.post("/send", async (req, res) => {
     from: email,
     to: process.env.EMAIL,
     subject: `New message from ${name}`,
-    text: message,
+    text: `
+      Name: ${name}
+      Email: ${email}
+      Phone: ${phone || "N/A"}
+
+      Message:
+      ${message}
+    `,
   };
 
   try {
@@ -41,6 +47,5 @@ app.post("/send", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
