@@ -49,13 +49,45 @@ function CalendarPage() {
     );
   };
 
+  const handleBooking = async (e) => {
+  e.preventDefault();
+
+  const bookingData = {
+    name: e.target.name?.value || "Anonymous",
+    phone: e.target.phone.value,
+    email: e.target.email?.value || "No email provided",
+    service: selectedServices.map((s) => s.service.title).join(", "),
+    date: date.toDateString(),
+    time: selectedTime || "Not Selected",
+    message: notes || "No additional notes",
+  };
+
+  try {
+    const res = await fetch("http://localhost:5000/book", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bookingData),
+    });
+
+    if (res.ok) {
+      alert("✅ Booking request sent successfully!");
+      e.target.reset();
+    } else {
+      alert("❌ Failed to send booking request.");
+    }
+  } catch (err) {
+    alert("❌ Error: " + err.message);
+  }
+};
+  
   return (
     <div className="bg-sky-500 min-h-screen py-10">
+      
       <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold mb-6 text-sky-600 font-serif underline underline-offset-8 decoration-[0.5px] decoration-sky-blue-400">
           SCHEDULE YOUR SERVICES
         </h2>
-
+        <form onSubmit={handleBooking}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div>
             <Calendar
@@ -133,6 +165,11 @@ function CalendarPage() {
               placeholder="Add any extra details here..."
             ></textarea>
 
+            <label className="block text-gray-700 font-medium mb-2 mt-4">Full Name</label>
+            <input type="text"name="name" required className="w-full border border-gray-300 p-3 mb-4 focus:ring-2 focus:ring-sky-300 focus:outline-none" placeholder="Enter your name"/>
+            <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
+            <input type="tel" name="phone" required className="w-full border border-gray-300 p-3 mb-4 focus:ring-2 focus:ring-sky-300 focus:outline-none" placeholder="Enter your phone number"/>
+
             <button
               onClick={handleConfirm}
               className="bg-sky-500 text-white px-3 py-3 rounded-lg w-full mt-4 hover:bg-sky-300 transition"
@@ -141,6 +178,7 @@ function CalendarPage() {
             </button>
           </div>
         </div>
+        </form>
       </div>
     </div>
   );
