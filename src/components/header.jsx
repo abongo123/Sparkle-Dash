@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo3 from "../assets/Pictures/logo2.jpeg";
+import logo3 from "../assets/Pictures/logo3.jpeg";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 function Header() {
