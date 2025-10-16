@@ -63,7 +63,7 @@ function CalendarPage() {
   };
 
   try {
-    const res = await fetch("https://sparkle-dash.vercel.app/calendar/book", {
+    const res = await fetch("https://sparkle-backend-five.vercel.app/book", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bookingData),
