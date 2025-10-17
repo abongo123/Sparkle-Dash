@@ -52,14 +52,17 @@ function CalendarPage() {
   const handleBooking = async (e) => {
   e.preventDefault();
 
-  const bookingData = {
+ const bookingData = {
     name: e.target.name?.value || "Anonymous",
-    phone: e.target.phone.value,
+    phone: e.target.phone?.value || "No phone provided",
     email: e.target.email?.value || "No email provided",
-    service: selectedServices.map((s) => s.service.title).join(", "),
     date: date.toDateString(),
     time: selectedTime || "Not Selected",
     message: notes || "No additional notes",
+    selectedServices: selectedServices.map((s) => ({
+      service: s.service, // keeps service.title
+      serviceOptions: s.selectedOptions || [], // ✅ include the selected options
+    })),
   };
 
   try {
