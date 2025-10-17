@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function CalendarPage() {
   const location = useLocation();
@@ -33,20 +36,30 @@ function CalendarPage() {
       (s) => s.selectedOptions || []
     );
 
-    alert(
-      `✅ Booking Confirmed:\n\n` +
-        `📅 Date: ${date.toDateString()}\n` +
-        `⏰ Time: ${selectedTime || "Not selected"}\n` +
-        `🧹 Services: ${selectedServices
-          .map((s) => s.service.title)
-          .join(", ")}\n` +
-        `📝 Selected Options: ${
-          allSelectedOptions.length > 0
-            ? allSelectedOptions.map((o) => o.name).join(", ")
-            : "None"
-        }\n` +
-        `📝 Notes: ${notes || "No additional notes"}`
-    );
+
+    const bookingSummary = `
+  ✅ Booking Confirmed!
+
+  📅 Date: ${date.toDateString()}
+  ⏰ Time: ${selectedTime || "Not selected"}
+  🧹 Services: ${selectedServices.map((s) => s.service.title).join(", ")}
+  📝 Options: ${
+    allSelectedOptions.length > 0
+      ? allSelectedOptions.map((o) => o.name).join(", ")
+      : "None"
+  }
+  🗒️ Notes: ${notes || "No additional notes"}
+  `;
+
+  toast.success(bookingSummary, {
+    className: "bg-sky-600 text-white p-4 rounded-lg shadow-lg",
+    position: "top-center",
+    autoClose: 7000,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+  });
   };
 
   const handleBooking = async (e) => {
@@ -64,21 +77,46 @@ function CalendarPage() {
 };
 
   try {
-    const res = await fetch("https://sparkle-backend-five.vercel.app/book", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(bookingData),
-    });
+  const res = await fetch("https://sparkle-backend-five.vercel.app/book", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(bookingData),
+  });
 
-    if (res.ok) {
-      alert("✅ Booking request sent successfully!");
-      e.target.reset();
-    } else {
-      alert("❌ Failed to send booking request.");
-    }
-  } catch (err) {
-    alert("❌ Error: " + err.message);
+  if (res.ok) {
+    toast.success("✅ Booking request sent successfully!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      className: "bg-sky-200 text-black rounded-full px-4 py-2 shadow-lg"
+    });
+    e.target.reset();
+  } else {
+    toast.error("❌ Failed to send booking request. Please try again.", {
+      position: "top-right",
+      autoClose: 6000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
   }
+} catch (err) {
+  toast.error(`🚨 Error: ${err.message}`, {
+    position: "top-right",
+    autoClose: 6000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+  });
+}
+
 };
   
   return (
@@ -181,6 +219,7 @@ function CalendarPage() {
         </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 }
