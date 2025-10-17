@@ -6,7 +6,7 @@ function Payment() {
   const room = localStorage.getItem("selectedRoom");
 
   const handlePayment = async () => {
-  const response = await fetch("https://your-backend.com/api/pay", {
+  const response = await fetch("https://sparkle-backend-five.vercel.app/pay", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
