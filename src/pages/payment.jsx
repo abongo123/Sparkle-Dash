@@ -5,6 +5,20 @@ function Payment() {
   const plan = localStorage.getItem("selectedPlan");
   const room = localStorage.getItem("selectedRoom");
 
+  const handlePayment = async () => {
+  const response = await fetch("https://your-backend.com/api/pay", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      phone: "254712345678",
+      amount: 500
+    })
+  });
+  const result = await response.json();
+  console.log(result);
+};
+
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50"
     style={{backgroundImage: `url(${Pay})`, backgroundSize: "cover", backgroundPosition: "center"}}>
@@ -14,7 +28,7 @@ function Payment() {
       </p>
 
       <div className="space-y-7 flex flex-col">
-        <button className="bg-green-600 text-white px-8 py-5 hover:bg-green-700 transition">
+        <button onClick={handlePayment}className="bg-green-600 text-white px-8 py-5 hover:bg-green-700 transition">
           Pay with M-Pesa
         </button>
         <button className="bg-sky-600 text-white px-8 py-5 hover:bg-blue-700 transition">
