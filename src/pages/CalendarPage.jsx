@@ -52,18 +52,16 @@ function CalendarPage() {
   const handleBooking = async (e) => {
   e.preventDefault();
 
- const bookingData = {
-    name: e.target.name?.value || "Anonymous",
-    phone: e.target.phone?.value || "No phone provided",
-    email: e.target.email?.value || "No email provided",
-    date: date.toDateString(),
-    time: selectedTime || "Not Selected",
-    message: notes || "No additional notes",
-    selectedServices: selectedServices.map((s) => ({
-      service: s.service, // keeps service.title
-      serviceOptions: s.selectedOptions || [], // ✅ include the selected options
-    })),
-  };
+  const bookingData = {
+  name: e.target.name?.value || "Anonymous",
+  phone: e.target.phone.value,
+  email: e.target.email?.value || "No email provided",
+  service: selectedServices.map((s) => s.service.title).join(", "),
+  selectedOptions: selectedServices.flatMap((s) => s.selectedOptions.map(o => o.name)),
+  date: date.toDateString(),
+  time: selectedTime || "Not Selected",
+  message: notes || "No additional notes",
+};
 
   try {
     const res = await fetch("https://sparkle-backend-five.vercel.app/book", {
