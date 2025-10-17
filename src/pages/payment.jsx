@@ -6,16 +6,28 @@ function Payment() {
   const room = localStorage.getItem("selectedRoom");
 
   const handlePayment = async () => {
-  const response = await fetch("https://sparkle-backend-five.vercel.app/pay", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      phone: "254712345678",
-      amount: 500
-    })
-  });
-  const result = await response.json();
-  console.log(result);
+  try {
+    const response = await fetch("https://sparkle-backend-five.vercel.app/api/mpesa/pay", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        phone: "254712345678", // test number in sandbox
+        amount: 500,
+      }),
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+    if (response.ok) {
+      alert("✅ STK Push sent! Check your phone to complete payment.");
+    } else {
+      alert("❌ Payment failed: " + (result.message || "Unknown error"));
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("⚠️ Network or server error. Please try again.");
+  }
 };
 
 
