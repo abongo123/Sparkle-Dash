@@ -12,9 +12,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: ["https://sparkle-dash.vercel.app"], // your frontend domain
+  origin: ["https://sparkle-dash.vercel.app"],
   methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"]
+  credentials: true,
 }));
 
 // 💌 CONTACT ROUTE
