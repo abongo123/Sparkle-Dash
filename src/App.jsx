@@ -14,6 +14,9 @@ import SelectRoom from "./pages/SelectRoom";
 import Payment from "./pages/payment";
 import CalendarPage from "./pages/CalendarPage";
 import ServiceDetails from "./pages/ServiceDetails";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
@@ -36,6 +39,7 @@ function App() {
           <Route path="/calendar" element={<CalendarPage />}/>
           <Route path="/payment" element={<Payment />} />
           <Route path="/service/:id" element={<ServiceDetails />} />
+          <Route path="/toast-container" element={<ToastContainer />} />
         </Routes>
       </main>
       <Footer/>

@@ -91,7 +91,8 @@ function CalendarPage() {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      className: "bg-sky-200 text-black rounded-full px-4 py-2 shadow-lg"
+      toastClassName: "bg-sky-200 text-black rounded-full px-4 py-2 shadow-lg",
+      bodyClassName: "text-black"
     });
     e.target.reset();
   } else {

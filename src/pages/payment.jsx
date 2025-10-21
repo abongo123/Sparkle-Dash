@@ -11,7 +11,7 @@ function Payment() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        phone: "254712345678", // test number in sandbox
+        phone: "254798253781", 
         amount: 500,
       }),
     });
@@ -20,7 +20,7 @@ function Payment() {
     console.log(result);
 
     if (response.ok) {
-      alert("✅ STK Push sent! Check your phone to complete payment.");
+      alert("✅Check your phone to complete payment.Thank you!");
     } else {
       alert("❌ Payment failed: " + (result.message || "Unknown error"));
     }
