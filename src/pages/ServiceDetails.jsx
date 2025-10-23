@@ -129,7 +129,7 @@ function ServiceDetails() {
               {options.map((option, index) => (
                 <label
                   key={index}
-                  className="flex items-center justify-between px-4 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition bg-slate-300"
+                  className="flex items-center justify-between px-4 py-2 rounded-none cursor-pointer hover:bg-gray-100 transition bg-white"
                 >
                   <span>{option.name}</span>
                   <div className="flex items-center gap-3">
@@ -151,11 +151,11 @@ function ServiceDetails() {
 
         {selectedOptions.length > 0 && (
           <div className="mb-6 text-left bg-emerald-50 p-3 rounded-md">
-            <h4 className="font-semibold text-emerald-700 mb-2">Selected:</h4>
+            <h4 className="font-semibold text-sky-700 mb-2">Selected Options:</h4>
             <ul className="list-disc list-inside text-gray-700">
               {selectedOptions.map((opt, i) => (
                 <li key={i}>
-                  {opt.name} — {opt.price}
+                  {opt.name}: {opt.price}
                 </li>
               ))}
             </ul>

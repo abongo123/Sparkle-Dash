@@ -15,7 +15,7 @@ function Footer() {
       <h1 className="p-8 font-bold mb-2">ADDRESS</h1>
       <p>P.O BOX 1699-50200, Bungoma, Kenya</p>
       <p>Phone: +254700445584</p>
-      <p>Email: sparkledash97@gmail.com or service@sparkledash.org</p>
+      <p>Email:info@sparkledashservices.com</p>
         </div>
         <div className="md:w-1/3 text-white">
       <h1 className="p-8 font-bold mb-2">OPERATING HOURS</h1>
