@@ -38,7 +38,7 @@ function SelectRoom() {
         onClick={handleNext}
         disabled={loading}
         className={`mt-6 px-10 py-3 text-lg text-white font-serif transition ${
-          loading ? "bg-gray-400 cursor-not-allowed" : "bg-emerald-600 hover:bg-emerald-700"
+          loading ? "bg-gray-400 cursor-not-allowed" : "bg- bg-sky-700 hover:bg-sky-400"
         }`}
       >
         {loading ? "Loading..." : "Next"}
