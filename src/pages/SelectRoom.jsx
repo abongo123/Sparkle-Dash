@@ -26,7 +26,7 @@ function SelectRoom() {
       <select
         value={selectedRoom}
         onChange={(e) => setSelectedRoom(e.target.value)}
-        className="border-2 border-emerald-500 rounded-full px-6 py-3 text-lg bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400"
+        className="border-2 border-sky-700 rounded-none px-6 py-3 text-lg bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400"
       >
         <option value="">Select Room</option>
         <option value="1BR">1 Bedroom (1BR)</option>
