@@ -28,13 +28,13 @@ function Footer() {
       <a href="https://facebook.com" target="_blank" rel="noreferrer">
               <FaFacebook className="hover:text-blue-300 mx-auto"/>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer">
+            <a href="https://x.com/DashSparkl62201" target="_blank" rel="noreferrer">
               <FaTwitter className="hover:text-blue-300 mx-auto"/>
             </a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
               <FaInstagram className="hover:text-blue-300 mx-auto"/>
             </a>
-            <a href="https://tiktok.com" target="_blank" rel="noreferrer">
+            <a href="https://www.tiktok.com/@sparkledashservices" target="_blank" rel="noreferrer">
               <FaTiktok className="hover:text-blue-300 mx-auto"/>
             </a>
             <a href="https://whatsapp.com" target="_blank" rel="noreferrer">

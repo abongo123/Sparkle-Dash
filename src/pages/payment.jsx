@@ -43,7 +43,7 @@ function Payment() {
         <button onClick={handlePayment}className="bg-green-600 text-white px-8 py-5 hover:bg-green-700 transition">
           Pay with M-Pesa
         </button>
-        <button className="bg-sky-600 text-white px-8 py-5 hover:bg-blue-700 transition">
+        <button onClick={handlePayment}className="bg-sky-600 text-white px-8 py-5 hover:bg-blue-700 transition">
           Pay with Bank Account
         </button>
       </div>
